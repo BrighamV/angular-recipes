@@ -9,13 +9,21 @@ import { AppComponent } from './app.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
     UserDetailsComponent,
-    UserListComponent
+    UserListComponent,
+    HeaderComponent,
+    HomeComponent,
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

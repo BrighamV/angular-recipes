@@ -11,8 +11,14 @@ export const environment = {
     storageBucket: "recipe-users-bef90.appspot.com",
     messagingSenderId: "334599827876",
     appId: "1:334599827876:web:a8b548329545fce8769131"
-  }
+  },
+  recipe : '3690f4a069msh828659ed19b8355p1ff8d6jsna6d3cf361d8e'
+  // recipe: {
+  //   'X-RapidAPI-Key': '3690f4a069msh828659ed19b8355p1ff8d6jsna6d3cf361d8e'
+  // }
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

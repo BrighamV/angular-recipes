@@ -1,17 +1,24 @@
-<div>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">Home</a>
-      <div class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a routerLink="users" class="nav-link">Users</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="add" class="nav-link">Add a user</a>
-        </li>
+<html>
+  <app-header></app-header>
+  <!-- <app-home></app-home> -->
+  <router-outlet></router-outlet>
+
+  <app-footer></app-footer>
+  <!-- <div>
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">Home</a>
+        <div class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a routerLink="users" class="nav-link">Users</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="add" class="nav-link">Add a user</a>
+          </li>
+        </div>
+      </nav>
+      <div class="container mt-3">
+        <h2>{{ title }}</h2>
+        <router-outlet></router-outlet>
       </div>
-    </nav>
-    <div class="container mt-3">
-      <h2>{{ title }}</h2>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+    </div> -->
+    </html>

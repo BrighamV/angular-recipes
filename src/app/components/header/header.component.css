@@ -1,0 +1,37 @@
+:root {
+    --one: 000;
+    --two: 250;
+    --three: 250;
+    --four: 250;
+    --five: 250;
+    --six: 250;
+
+}
+
+html{
+    /* background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six))); */
+}
+.page-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+header{
+    font-size: 4.2em;
+    grid-column: 2/3;
+    background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six)));
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.logo{
+    float: left;
+    padding: 13.3px;
+}
+.search {
+    float: right;
+    text-decoration: none;
+}
