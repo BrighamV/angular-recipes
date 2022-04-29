@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit {
       // .then(response => console.log(response))
       // .then((data) => data)
       // .catch(err => console.error(err));
-      console.log('rec data', recipe_data);
+      console.log('rec datas', recipe_data);
     this.getName(recipe_data)
   }
 
