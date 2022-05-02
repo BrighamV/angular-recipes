@@ -3,28 +3,42 @@
 
 <form class="ing_list" (ngSubmit)="onSubmit()">
     <label for="first">first ingredient</label>
-    <input type="text" id="first" name="first">
+    <input type="text" id="first" name="first" [(ngModel)]="first">
 
     <label for="second">second ingredient</label>
-    <input type="text" id="second" name="second">
+    <input type="text" id="second" name="second" [(ngModel)]="second">
 
     <label for="third">third ingredient</label>
-    <input type="text" id="third" name="third">
+    <input type="text" id="third" name="third" [(ngModel)]="third">
 
-    <label for="fourth">fourth ingredient</label>
-    <input type="text" id="fourth" name="fourth">
+    <!-- <label for="fourth">fourth ingredient</label>
+    <input type="text" id="fourth" name="fourth"> -->
 
     <button class="button" type="submit">Search</button>
 </form>
 
 
-<!-- {{ text | json }} -->
+{{ name | json }}
 
-<ul class="recipe_list" *ngIf="text">
-    <li *ngFor="let tex of text">
-        <p>{{ tex.title }}</p>
-        <img src='{{ tex.image }}'>
+<ul class="recipe_list" *ngIf="name">
+    <li *ngFor="let nam of name; index as i">
+        <p>{{ nam.title }}</p>
+        <p>{{ nam.id }} </p>
+        <img src='{{ nam.image }}' (click)='checkIcon( nam.id )'>
     </li>
 
 
 </ul>
+
+{{ instructions | json }}
+
+<ul class="recipe_list" *ngIf="instructions">
+    <li *ngFor="let instruction of instructions; index as i">
+        <p>{{ instruction.steps.number }}</p>
+        <p>{{ instruction.steps.step }} </p>
+    </li>
+
+
+</ul>
+{{ instructions.summary }}
+<!-- <p>{{ instructions.steps.step }} </p> -->
