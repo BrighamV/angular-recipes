@@ -1,7 +1,7 @@
 import { getLocaleDateFormat } from '@angular/common';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpService } from 'src/app/services/http.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -15,13 +15,33 @@ export class SearchComponent implements OnInit {
   text: any = [];
  
 
-  constructor(private _http: HttpService) { }
+  constructor(
+    private http: HttpClient,
+) { }
+
 
   ngOnInit(): void {
 
-    this._http.getAPIData().subscribe(data => {
-      this.text = data;
-    })
+
+
+    const options = {
+      method: 'GET',
+      headers: {
+        
+        'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+        'X-RapidAPI-Key': `${environment.recipe}`
+      }
+    };
+  
+      this.http.get('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=apples%2Cflour%2Csugar&number=10&ignorePantry=true&ranking=1', options)
+      .subscribe(data => {
+        this.text = data
+      })
+
+  }
+
+  onSubmit() {
+    console.log("submited")
   }
  
 }
