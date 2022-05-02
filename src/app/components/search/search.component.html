@@ -1,4 +1,14 @@
 <p>search works!</p>
 <p class="title">recipe title goes here</p>
 
-{{ text | json }}
+<!-- {{ text | json }} -->
+
+
+<ul class="recipe_list" *ngIf="text">
+    <li *ngFor="let tex of text">
+        <p>{{ tex.id }}</p>
+        <p>{{ tex.title}}</p>
+    </li>
+
+
+</ul>
