@@ -74,9 +74,13 @@ export class SearchComponent implements OnInit {
       }
     };
   
+
+
+  
       this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`, options)
       .subscribe(data => {
         this.instructions = data
+        console.log('hi');
       })
   }
  
