@@ -1,7 +1,33 @@
-<p>search works!</p>
-<p class="title">recipe title goes here</p>
 
-<form class="ing_list" (ngSubmit)="onSubmit()">
+<div class="form">
+  <mat-form-field class="example-form-field" appearance="fill" >
+    <mat-label>First ingredient</mat-label>
+    <input matInput type="text" [(ngModel)]="value1" [(ngModel)]="first">
+    <button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Second ingredient</mat-label>
+    <input matInput type="text" [(ngModel)]="value2" [(ngModel)]="second">
+    <button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Third ingredient</mat-label>
+    <input matInput type="text" [(ngModel)]="value3" [(ngModel)]="third">
+    <button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </mat-form-field>
+  <button class="button" type="submit" (click)="onSubmit()">Search</button>
+
+</div>
+<!-- <form class="ing_list" (ngSubmit)="onSubmit()">
     <label for="first">first ingredient</label>
     <input type="text" id="first" name="first" [(ngModel)]="first">
 
@@ -11,34 +37,54 @@
     <label for="third">third ingredient</label>
     <input type="text" id="third" name="third" [(ngModel)]="third">
 
-    <!-- <label for="fourth">fourth ingredient</label>
-    <input type="text" id="fourth" name="fourth"> -->
-
+ 
     <button class="button" type="submit">Search</button>
-</form>
+</form> -->
 
 
-{{ name | json }}
+<!-- {{ name | json }} -->
 
-<ul class="recipe_list" *ngIf="name">
-    <li *ngFor="let nam of name; index as i">
-        <p>{{ nam.title }}</p>
-        <p>{{ nam.id }} </p>
-        <img src='{{ nam.image }}' (click)='checkIcon( nam.id )'>
+<div class="recipe_list" *ngIf="name">
+  <mat-card class="example-card" *ngFor="let nam of name; index as i">
+    <mat-card-header>
+      <mat-card-title>{{ nam.title }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src='{{ nam.image }}' (click)='checkIcon( nam.id )' alt="{{ nam.title }}">
+  
+  </mat-card>
+</div>
+
+
+
+<!-- {{ instructions | json }} -->
+
+<ul class="recipe_list" *ngIf="steps">
+    <li *ngFor="let step of steps; index as i">
+        <p>Step # {{ step.number }} </p>
+        <ul>
+        <li *ngFor="let equipment of step.equipment; index as i">
+            <p>{{equipment.name}}</p>
+        </li>
+        <li *ngFor="let ingredient of step.ingredients; index as i">
+          <p>{{ingredient.name}}</p>
+      </li>
+        </ul>
+        <p>{{ step.step }}</p>
+
     </li>
+ 
 
 
 </ul>
 
-{{ instructions | json }}
+{{ ingredients | json }}
 
-<ul class="recipe_list" *ngIf="instructions">
-    <li *ngFor="let instruction of instructions; index as i">
-        <p>{{ instruction.steps.number }}</p>
-        <p>{{ instruction.steps.step }} </p>
-    </li>
+<ul class="recipe_list" *ngIf="ingredients">
+  <li *ngFor="let ingredient of ingredients; index as i">
+      <p>here are the ingredients</p>
+      <p>{{ ingredient.name }}</p>
+  </li>
 
 
 </ul>
-{{ instructions.summary }}
-<!-- <p>{{ instructions.steps.step }} </p> -->
+<!-- {{ instructions.summary }} -->

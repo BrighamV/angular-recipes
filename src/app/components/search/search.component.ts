@@ -2,6 +2,7 @@ import { getLocaleDateFormat } from '@angular/common';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
 
 
 @Component({
@@ -18,6 +19,11 @@ export class SearchComponent implements OnInit {
   first!: string;
   second!: string;
   third!: string;
+  steps: any = [];
+  ingredients: any = [];
+  value1 = 'Clear me';
+  value2 = 'Clear me';
+  value3 = 'Clear me';
 
 
 
@@ -42,7 +48,7 @@ export class SearchComponent implements OnInit {
       }
     };
   
-      this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${first}%2C${second}%2C${third}&number=10&ignorePantry=true&ranking=1`, options)
+      this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${first}%2C${second}%2C${third}&number=50&ignorePantry=true&ranking=1`, options)
       .subscribe(data => {
         this.name = data
       })
@@ -61,6 +67,7 @@ export class SearchComponent implements OnInit {
   checkIcon(index: string) {
     console.log("id",index)
     this.instructionsById(index);
+    this.getIngredientList(index);
   }
 
 
@@ -72,16 +79,34 @@ export class SearchComponent implements OnInit {
         'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
         'X-RapidAPI-Key': `${environment.recipe}`
       }
-    };
-  
-
-
-  
-      this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`, options)
+    };  
+      this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/analyzedInstructions?stepBreakdown=true`, options)
       .subscribe(data => {
         this.instructions = data
-        console.log('hi');
+        console.log('instuctions', this.instructions[0].steps);
+        this.steps = this.instructions[0].steps
       })
   }
- 
+
+  getIngredientList(id: string) {
+    const options = {
+      method: 'GET',
+      headers: {
+        
+        'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
+        'X-RapidAPI-Key': `${environment.recipe}`
+      }
+    };
+  
+      this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/ingredientWidget.json`, options)
+      .subscribe(data => {
+        this.ingredients = data
+        console.log("ing",this.ingredients);
+      })
+  }
+
+
+
+
+
 }
