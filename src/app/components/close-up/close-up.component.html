@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{data.recipe.title}}</h2>
+<mat-dialog-content>
+    <img src="{{data.recipe.image}}" alt="{{data.recipe.title}}">
+</mat-dialog-content>
+<mat-dialog-content>
+    {{ data.ingredients | json }}
+
+    {{data.ingredients.ingredients}}
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close mat-dialog-close="true" [routerLink]="'/detail/' + data.recipe.id">See Recipe</button>
+    <button mat-button mat-dialog-close mat-dialog-close="false">Close</button>
+</mat-dialog-actions>

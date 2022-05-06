@@ -25,3 +25,7 @@
   /* width: 500px; */
   padding: 10px;
 }
+.example-card{
+  max-width: 270px;
+  margin: 30px;
+}

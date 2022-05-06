@@ -20,6 +20,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { DetailComponent } from './components/detail/detail.component';
+import { CloseUpComponent } from './components/close-up/close-up.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -35,8 +38,11 @@ import {MatIconModule} from '@angular/material/icon';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    DetailComponent,
+    CloseUpComponent
   ],
+  entryComponents: [CloseUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,6 +57,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
