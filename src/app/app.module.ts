@@ -23,6 +23,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { DetailComponent } from './components/detail/detail.component';
 import { CloseUpComponent } from './components/close-up/close-up.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 
 
 
@@ -40,7 +41,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     FooterComponent,
     SearchComponent,
     DetailComponent,
-    CloseUpComponent
+    CloseUpComponent,
+    AddRecipeComponent
   ],
   entryComponents: [CloseUpComponent],
   imports: [

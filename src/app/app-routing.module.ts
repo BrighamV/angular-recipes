@@ -5,6 +5,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'users', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'add', component: AddUserComponent},
   { path: 'detail/:id', component: DetailComponent},
+  { path: 'add', component: AddRecipeComponent}
 
 ];
 
