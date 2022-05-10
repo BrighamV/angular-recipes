@@ -76,14 +76,14 @@ export class SearchComponent implements OnInit {
       this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipe.id}/ingredientWidget.json`, options)
       .subscribe((data: any) => {
         let ingredients = data.ingredients;
-      console.log("recipe ingredients", ingredients);
+      // console.log("recipe ingredients", ingredients);
       let dialogRef = this.dialog.open(CloseUpComponent, {data: {recipe, ingredients}});
       dialogRef.afterClosed().subscribe(result => {
-      console.log(`dialog result: ${result}`);
+      // console.log(`dialog result: ${result}`);
       if (result == 'true') {
-        console.log("yey lets go")
+        // console.log("yey lets go")
       } else {
-        console.log("i guess were going back")
+        // console.log("i guess were going back")
       }
 
     })

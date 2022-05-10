@@ -1,2 +1,30 @@
 <p>detail works!</p>
 
+<ul class="recipe_list" *ngIf="steps">
+    <li *ngFor="let step of steps; index as i">
+        <p>Step # {{ step.number }} </p>
+        <ul>
+        <li *ngFor="let equipment of step.equipment; index as i">
+            <p>{{equipment.name}}</p>
+        </li>
+        <li *ngFor="let ingredient of step.ingredients; index as i">
+          <p>{{ingredient.name}}</p>
+      </li>
+        </ul>
+        <p>{{ step.step }}</p>
+
+    </li>
+
+    <ul class="equipment_list" *ngIf="steps">
+        <p>What you'll need</p>
+        <li *ngFor="let step of steps; index as i">
+            <ul>
+            <li *ngFor="let equipment of step.equipment; index as i">
+                <p>{{equipment.name}}</p>
+            </li>
+            </ul>    
+        </li>
+ 
+
+
+</ul>
