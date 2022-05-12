@@ -17,7 +17,7 @@ html{
 }
 
 header{
-    font-size: 4.2em;
+    font-size: 1.6em;
     grid-column: 2/3;
     background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six)));
     width: 100%;
@@ -26,20 +26,58 @@ header{
     border-style: solid;
     border-radius: 10px;
 }
-
+.header {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+}
 .logo{
     float: left;
     padding: 13.3px;
+    grid-column: 1/2;
+}
+.name {
+    grid-column: 2/3;
+    font-size: 2em;
+    padding-top: 40px;
+
 }
 .search {
-    float: right;
     text-decoration: none;
-    padding: 20px;
-
+    padding-top: 40px;
+    grid-column: 4/5;
 }
-
-.search:visited {
+.add {
+    grid-column: 5/6;
+    padding-top: 40px;
+    text-decoration: none;
+}
+.login {
+    grid-column: 6/7;
+    padding-top: 40px;
+    text-decoration: none;
+}
+a:visited {
     text-decoration: none;
     color: black;
     padding: 50px 0px;
 }
+a:link {
+    text-decoration: none;
+    /* make this the primary color */
+    color: black;
+    padding: 50px 0px;  
+}
+a:hover {
+    /* make this the secondary color */
+    color: aliceblue;
+}
+/* .add:visited {
+    text-decoration: none;
+    color: black;
+    padding: 50px 0px;
+}
+.login:visited {
+    text-decoration: none;
+    color: black;
+    padding: 50px 0px;
+} */

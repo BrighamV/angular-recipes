@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'search', component: SearchComponent},
   { path: 'users', component: UserListComponent },
-  { path: 'add', component: AddUserComponent},
+  { path: 'addUser', component: AddUserComponent},
   { path: 'detail/:id', component: DetailComponent},
   { path: 'add', component: AddRecipeComponent}
 

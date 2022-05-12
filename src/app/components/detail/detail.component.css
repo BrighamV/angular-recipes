@@ -1,0 +1,26 @@
+.equipment_list li{
+    list-style: none;
+}
+
+.image {
+    max-width: fit-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        padding: 30px;
+}
+
+.title_card {
+    text-align: center;
+    font-size: xx-large;
+    padding: 20px;
+}
+
+.instructions {
+    padding: 20px;
+}
+
+.ingredient_list {
+    padding: 20px;
+}

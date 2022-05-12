@@ -24,7 +24,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { CloseUpComponent } from './components/close-up/close-up.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -60,6 +60,7 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
     MatCardModule,
     MatIconModule,
     MatDialogModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

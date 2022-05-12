@@ -1,22 +1,36 @@
-<p>detail works!</p>
+<mat-card class="title_card">
+    <mat-card-title>{{info.title}}</mat-card-title>
+    <img mat-card-image class="image" src='{{ info.image }}' alt="{{ info.title }}" >
+</mat-card>
 
-<ul class="recipe_list" *ngIf="steps">
+<mat-card class="instructions">
+    <ul class="recipe_list" *ngIf="steps">
     <li *ngFor="let step of steps; index as i">
         <p>Step # {{ step.number }} </p>
-        <ul>
-        <li *ngFor="let equipment of step.equipment; index as i">
-            <p>{{equipment.name}}</p>
-        </li>
+        <!-- <ul>
+       
         <li *ngFor="let ingredient of step.ingredients; index as i">
           <p>{{ingredient.name}}</p>
       </li>
-        </ul>
+        </ul> -->
         <p>{{ step.step }}</p>
 
     </li>
+</ul>
+</mat-card>
 
+<mat-card class="ingredient_list">
+    <mat-card-title>Make sure you have:</mat-card-title>
+    <ul *ngIf="ingredients">
+        <li *ngFor="let ingredient of ingredients; index as i">
+            <p>{{ ingredient.amount.us.value }} {{ ingredient.amount.us.unit }} {{ ingredient.name }}</p>
+        </li>
+    </ul>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>What you'll need</mat-card-title>
     <ul class="equipment_list" *ngIf="steps">
-        <p>What you'll need</p>
         <li *ngFor="let step of steps; index as i">
             <ul>
             <li *ngFor="let equipment of step.equipment; index as i">
@@ -24,7 +38,5 @@
             </li>
             </ul>    
         </li>
- 
-
-
-</ul>
+    </ul>
+</mat-card>
