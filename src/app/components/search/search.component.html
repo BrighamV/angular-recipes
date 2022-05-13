@@ -1,8 +1,8 @@
 
 <div class="form">
-  <mat-form-field class="example-form-field" appearance="fill" >
+  <mat-form-field class="example-form-field" appearance="fill" color="primary">
     <mat-label>First ingredient</mat-label>
-    <input matInput type="text" [(ngModel)]="value1" [(ngModel)]="first">
+    <input matInput type="text" [(ngModel)]="value1" [(ngModel)]="first" >
     <button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
       <mat-icon>close</mat-icon>
     </button>
@@ -24,7 +24,7 @@
     </button>
 
   </mat-form-field>
-  <button class="button" type="submit" (click)="onSubmit()">Search</button>
+  <button mat-raised-button class="button" type="submit" (click)="onSubmit()" color="accent">Search</button>
 
 </div>
 
@@ -34,7 +34,7 @@
     <mat-card-header>
       <mat-card-title>{{ nam.title }}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src='{{ nam.image }}' (click)="openDialog( nam )" alt="{{ nam.title }}" >
+    <img mat-card-image class="mat-img" src='{{ nam.image }}' (click)="openDialog( nam )" alt="{{ nam.title }}" >
     <!-- [routerLink]="'/detail/' + nam.id" -->
   
   </mat-card>
@@ -62,7 +62,7 @@
 
 
 </ul>
-
+<!-- 
 {{ ingredients | json }}
 
 <ul class="recipe_list" *ngIf="ingredients">
@@ -71,5 +71,5 @@
   </li>
 
 
-</ul>
+</ul> -->
 <!-- {{ instructions.summary }} -->

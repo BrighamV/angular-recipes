@@ -29,3 +29,11 @@
   max-width: 270px;
   margin: 30px;
 }
+.mat-img{
+  margin: auto;
+  width: 98%;
+}
+.button {
+  /* text-align: center; */
+  margin: auto;
+}

@@ -51,7 +51,7 @@ export class SearchComponent implements OnInit {
       }
     };
   
-      this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${first}%2C${second}%2C${third}&number=4&ignorePantry=true&ranking=1`, options)
+      this.http.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${first}%2C${second}%2C${third}&number=16&ignorePantry=true&ranking=1`, options)
       .subscribe(data => {
         this.name = data
       })

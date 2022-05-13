@@ -1,132 +1,30 @@
-<div class="add-recipe">
-  <form [formGroup]="myForm" class="add-recipe-form">
-
-
-    <!-- <hr> -->
-
-
-    <mat-form-field class="full" *ngIf="myForm.value.name">
-        <input matInput placeholder="Recipe name" formControlName="name">
-    </mat-form-field>
-
-    <div formArrayName="instructions">
-      <div *ngFor="let instruction of instructionForms.controls; let i=index" [formGroupName]="i">
-
-        <mat-form-field appearance="fill" >
-          <mat-label>Step Number</mat-label>
-          <input matInput type="number" placeholder="1" formControlName="step" min="1">
-          <span matSuffix> #</span>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-label>Instructions</mat-label>
-          <textarea matInput cdkTextareaAutosize [cdkAutosizeMinRows]="3" [cdkAutosizeMaxRows]="7" formControlName="direction" class="textarea"></textarea>
-        </mat-form-field>
-
-        <button mat-raised-button (click)="deleteinstruction(i)">Delete</button>
-      </div>
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="fname"
+        required
+        [(ngModel)]="user.fname"
+        name="fname"
+      />
     </div>
-    <button mat-raised-button (click)="addinstruction()">Add instruction</button>
-
-
-    <div formArrayName="ingredients">
-      <div *ngFor="let ingredient of ingredientForms.controls; let i=index" [formGroupName]="i">
-
-        <mat-form-field>
-          <input matInput placeholder="name" formControlName="name">
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="amount" formControlName="amount">
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-select matInput placeholder="units" formControlName="units">
-            <mat-optgroup label="US">
-              <mat-option value="lbs">lbs</mat-option>
-              <mat-option value="cups">cups</mat-option>
-              <mat-option value="Tbs">Tbs</mat-option>
-              <mat-option value="tbs">tbs</mat-option>
-              <mat-option value="oz">oz</mat-option>
-              <mat-option value="floz">fl oz</mat-option>
-
-
-            </mat-optgroup>
-            <mat-optgroup label="Metric">
-              <mat-option value="grams">grams</mat-option>
-
-            </mat-optgroup>
-            <mat-optgroup label="Other">
-              <mat-option value="pack">pack</mat-option>
-              <mat-option value="can">can</mat-option>
-              <mat-option value="box">box</mat-option>              
-            </mat-optgroup> 
-
-          </mat-select>
-        </mat-form-field>
-
-        <button mat-raised-button (click)="deleteingredient(i)">Delete</button>
-
-      </div>
+    <div class="form-group">
+      <label for="lname">Last name</label>
+      <input
+        class="form-control"
+        id="lname"
+        required
+        [(ngModel)]="user.lname"
+        name="lname"
+      />
     </div>
-    <button mat-raised-button (click)="addingredient()">Add ingredient</button>
-
-
-    <div formArrayName="equipments">
-      <div *ngFor="let equipment of equipmentForms.controls; let i=index" [formGroupName]="i">
-
-        <mat-form-field>
-          <input matInput placeholder="name" formControlName="name">
-        </mat-form-field>
-
-        <button mat-raised-button (click)="deleteequipment(i)">Delete</button>
-
-      </div>
-    </div>
-    <button mat-raised-button (click)="addequipment()">Add equipment</button>
-
-    <mat-form-field class="full">
-      <input matInput placeholder="Author's Name" formControlName="authorName">
-    </mat-form-field>
-
-    <mat-form-field class="full">
-      <input matInput placeholder="Image of the Author" formControlName="authorImage">
-    </mat-form-field>
-
-    <mat-form-field class="full">
-      <input matInput placeholder="Picture of dish" formControlName="image">
-    </mat-form-field>
-
-  </form>
-
-  <mat-card class="recipe-card">
-    <h2 mat-dialog-title>{{ myForm.value.name | json }}</h2>
-      Instructions: 
-    <!-- {{ myForm.value.instructions | json }} -->
-    <ul *ngIf="myForm.value.instructions">
-      <li *ngFor="let step of myForm.value.instructions; index as i">
-          <p>Step # {{ step.step }} </p>
-          <p>{{ step.direction }}</p>
-      </li>
-     </ul>
-
-      Ingredients:
-      <ul *ngIf="myForm.value.ingredients">
-        <li *ngFor="let ingredient of myForm.value.ingredients; index as i">
-            <p>{{ ingredient.amount }} {{ ingredient.units }} {{ ingredient.name }}</p>
-        </li>
-      </ul>
-
-      Equipment needed:
-      <ul *ngIf="myForm.value.equipments">
-        <li *ngFor="let equipment of myForm.value.equipments; index as i">
-            <p>{{ equipment.name }}</p>
-        </li>
-      </ul>
-
-      Author Name:
-      <p>{{ myForm.value.authorName }}</p>
-    
-
-  </mat-card>
+    <button (click)="saveUser()" class="btn btn-success">Submit</button>
+  </div>
+  <div *ngIf="submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newUser()">Add</button>
+  </div>
 </div>
