@@ -15,6 +15,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   steps: any = [];
   info: any = [];
   ingredients: any = [];
+  equipment: any = [];
 
 
   constructor(
@@ -64,6 +65,20 @@ export class DetailComponent implements OnInit, OnDestroy {
         this.instructions = data
         console.log('instuctions', this.instructions[0].steps);
         this.steps = this.instructions[0].steps
+
+        // getting rid of repeated equipment. 
+        // console.log("steps", this.steps.length)
+        for (let i = 0; i < this.steps.length; i++) {
+          for (let j = 0; j < this.steps.length; j++) {
+            if (this.steps[i].equipment[j]) {
+            // console.log("equipment", this.steps[i].equipment[j].name)
+            if(!this.equipment.includes(this.steps[i].equipment[j].name)) {
+              this.equipment.push(this.steps[i].equipment[j].name)
+            }
+            }
+          }
+        }
+        // console.log('complete equipment list', this.equipment)
       })
   }
 
