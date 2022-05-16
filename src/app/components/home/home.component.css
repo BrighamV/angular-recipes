@@ -1,9 +1,51 @@
 .home {
     text-align: center;
-    margin: 1em;
+    margin: .5em;
     font-size: 3em;
 }
 .home_pic {
-    width: 80%;
+    width: 60%;
     
+}
+
+.home_intro {
+    padding-top: 30px;
+    line-height: normal;
+    margin: 20px;
+}
+.home_layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.search_card {
+    width: 60%;
+    margin: 20px auto;
+    font-size: larger;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.video {
+    text-align: center;
+}
+.search_video {
+    width: 70%;
+    /* border: 2px solid black; */
+    margin: 20px auto;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+.add_recipe_card {
+    width: 60%;
+    margin: 20px auto;
+    font-size: larger;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+.login_card {
+    width: 60%;
+    margin: 20px auto;
+    font-size: larger;
+    grid-column: 1/2;
+    grid-row: 3/4;
 }
