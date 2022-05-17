@@ -18,13 +18,14 @@ export class AddRecipeComponent implements OnInit {
   
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      name: '*recipe name*',
+      name: '',
       instructions: this.fb.array([]),
       ingredients: this.fb.array([]),
       equipments: this.fb.array([]),
-      image: 'just a string for now',
-      authorImage: 'just a string for now',
-      authorName: '*Author Name*',
+      image: '',
+      authorImage: '',
+      authorName: '',
+      // time: '*Time it takes to complete this recipe'
 
     })
   }
@@ -76,12 +77,55 @@ export class AddRecipeComponent implements OnInit {
     this.equipmentForms.removeAt(i)
   }
 
+  async addrecipe() {
+    console.log('here in add recipe', this.myForm.value.name)
+       const options = {
+        method: "POST",
+        headers: {
+          // "Access-Control-Allow-Origin": "http://localhost:4200/add",
+          "Content-Type": "application/json",
 
- 
-  // addRecipe() {
-  //   this.ingredientArray.push(new FormControl('', Validators.required));
+  
+        },
+        body: JSON.stringify({
+          name: this.myForm.value.name,
+          instructions: this.myForm.value.instructions,
+          // ingredients: this.myForm.value.name,
+          // equipment: this.myForm.value.name, 
+
+        }),
+      };
+  
+    let mess = await fetch("https://cse341-my-recipe.herokuapp.com/recipes/", options);
+        console.log("fetch message", mess);
+
+  }
+
+  // async function addMovie(formInput){
+  //   const token = getCookie("token");
+  
+    // const options = {
+    //     method: "POST",
+    //     headers: {
+    //       // "Access-Control-Allow-Origin":  "https://brentont240.github.io/",
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${token}`,
+  
+    //     },
+    //     body: JSON.stringify({
+    //       title: formInput.title,
+    //       yearPublished: formInput.yearPublished,
+    //       rating: formInput.rating,
+    //       minutes: formInput.minutes,
+    //       genre: formInput.genre,
+    //       imageUrl: formInput.imageUrl,
+    //       description: formInput.description,
+    //       starRating: formInput.starRating
+    //     }),
+    //   };
+  
+    // let postMovie = await fetch("https://film-watcher.herokuapp.com/movies/add-movie", options);
+  //   console.log("fetch message", postMovie);
   // }
-  // removeInputControl(idx: number) {
-  //   this.ingredientArray.removeAt(idx);
-  // }
+  
 }
