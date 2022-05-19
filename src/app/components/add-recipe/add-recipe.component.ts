@@ -19,6 +19,8 @@ export class AddRecipeComponent implements OnInit {
   ngOnInit(): void {
     this.myForm = this.fb.group({
       name: '',
+      hour: '',
+      minute: '',
       instructions: this.fb.array([]),
       ingredients: this.fb.array([]),
       equipments: this.fb.array([]),

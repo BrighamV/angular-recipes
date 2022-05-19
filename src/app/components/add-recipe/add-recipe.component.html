@@ -1,3 +1,6 @@
+  <h1>
+    Add Your Recipe
+  </h1>
   <form [formGroup]="myForm" class="add-recipe-form">
 
 
@@ -9,6 +12,16 @@
       <div>
       <mat-form-field >
           <input matInput placeholder="Recipe name" formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="fill" >
+        <mat-label>Hours</mat-label>
+        <input matInput type="number" placeholder="1"  formControlName="hour" min="1">
+        <span matSuffix> </span>
+      </mat-form-field>
+      <mat-form-field appearance="fill" >
+        <mat-label>Minutes</mat-label>
+        <input matInput type="number" placeholder="45"  formControlName="minute" min="1" max="59">
+        <span matSuffix> </span>
       </mat-form-field>
       </div>
     </mat-card>
@@ -73,7 +86,7 @@
             <mat-label>Instructions</mat-label>
             <textarea matInput cdkTextareaAutosize [cdkAutosizeMinRows]="3" [cdkAutosizeMaxRows]="7" formControlName="direction" class="textarea"></textarea>
           </mat-form-field>
-
+<br>
           <button mat-raised-button (click)="deleteinstruction(i)">Delete</button>
         </div>
       </div>
@@ -104,14 +117,21 @@
         <mat-form-field class="author-name">
           <input matInput placeholder="Author's Name" formControlName="authorName">
         </mat-form-field>
-
+<!-- 
         <mat-form-field class="author-image">
           <input matInput placeholder="Image of the Author" formControlName="authorImage">
-        </mat-form-field>
+        </mat-form-field> -->
 
-        <mat-form-field class="recipe-image">
+        <!-- <mat-form-field class="recipe-image">
           <input matInput placeholder="Picture of dish" formControlName="image">
-        </mat-form-field>
+        </mat-form-field> -->
+
+        <div ng-app="MyApp" ng-controller="AppCtrl" layout-margin layout-padding>
+          <input class="recipe-image" id="input-file-id" multiple type="file" />
+          <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+         </div>
+      
+
       </div>
     </mat-card>
 
@@ -124,6 +144,15 @@
     <h2 *ngIf="myForm.value.name">
       {{ myForm.value.name }}
     </h2>
+    <h3 class="time" *ngIf="myForm.value.hour || myForm.value.minute">
+      <div *ngIf="myForm.value.hour">
+        {{myForm.value.hour}} <span *ngIf="myForm.value.hour < 2">Hour</span><span *ngIf="myForm.value.hour > 1">Hours</span>
+        <span *ngIf="myForm.value.minute">
+          {{myForm.value.minute}} <span *ngIf="myForm.value.minute < 2">Minute</span><span *ngIf="myForm.value.minute > 1">Minutes</span>
+        </span>
+      </div>
+     
+    </h3>
     
 
       Ingredients:
@@ -132,15 +161,16 @@
             <p>{{ ingredient.amount }} {{ ingredient.units }} {{ ingredient.name }}</p>
         </li>
       </ul>
-
-      Instructions: 
-      <!-- {{ myForm.value.instructions | json }} -->
-      <ul *ngIf="myForm.value.instructions">
-        <li *ngFor="let step of myForm.value.instructions; index as i">
-            <p>Step # {{ step.step }} </p>
-            <p>{{ step.direction }}</p>
-        </li>
-       </ul>
+      <div class="instruction-div">
+        Instructions: 
+        <!-- {{ myForm.value.instructions | json }} -->
+        <ul *ngIf="myForm.value.instructions">
+          <li *ngFor="let step of myForm.value.instructions; index as i">
+              <p>Step # {{ step.step }} </p>
+              <p>{{ step.direction }}</p>
+          </li>
+        </ul>
+      </div>
 
       Equipment needed:
       <ul *ngIf="myForm.value.equipments">

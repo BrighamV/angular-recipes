@@ -1,79 +1,85 @@
-:root {
-    --one: 000;
-    --two: 250;
-    --three: 250;
-    --four: 250;
-    --five: 250;
-    --six: 250;
+@media screen and (min-width: 835px) {
 
-}
+    :root {
+        --one: 000;
+        --two: 250;
+        --three: 250;
+        --four: 250;
+        --five: 250;
+        --six: 250;
 
-html{
-    /* background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six))); */
-}
-.page-layout{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
+    }
 
-header{
-    font-size: 1.6em;
-    grid-column: 2/3;
-    background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six)));
-    width: 100%;
-    text-align: center;
-    height: 100px;
-    border-style: solid;
-    border-radius: 10px;
-}
-.header {
-    display: grid;
-    grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
-}
-.logo{
-    float: left;
-    padding: 13.3px;
-    grid-column: 1/2;
-}
-.name {
-    grid-column: 2/3;
-    font-size: 2em;
-    padding-top: 35px;
+    html{
+        /* background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six))); */
+    }
+    .page-layout{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 
-}
-.search {
-    text-decoration: none;
-    padding-top: 35px;
-    grid-column: 4/5;
-}
-.add {
-    grid-column: 5/6;
-    padding-top: 35px;
-    text-decoration: none;
-}
-.login {
-    grid-column: 6/7;
-    padding-top: 35px;
-    text-decoration: none;
-}
-a:visited {
-    text-decoration: none;
-    color: black;
-}
-a:link {
-    text-decoration: none;
-    /* make this the primary color */
-    color: black;
-    padding: 50px 0px;  
-}
-a:hover {
-    /* make this the secondary color */
-    color: aliceblue;
-    cursor: pointer;
-}
+    header{
+        font-size: 1.6em;
+        grid-column: 2/3;
+        background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six)));
+        width: 100%;
+        text-align: center;
+        height: 100px;
+        border-style: solid;
+        border-radius: 10px;
+    }
+    .header {
+        display: grid;
+        grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+    }
+    .logo{
+        float: left;
+        padding: 13.3px;
+        grid-column: 1/2;
+    }
+    .actual-logo {
+        width: fit-content;
+    }
+    .name {
+        grid-column: 2/3;
+        font-size: 2em;
+        padding-top: 35px;
 
-img {
-    cursor: pointer;
+    }
+    .search {
+        text-decoration: none;
+        padding-top: 35px;
+        grid-column: 4/5;
+    }
+    .add {
+        grid-column: 5/6;
+        padding-top: 35px;
+        text-decoration: none;
+    }
+    .login {
+        grid-column: 6/7;
+        padding-top: 35px;
+        text-decoration: none;
+    }
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+    a:link {
+        text-decoration: none;
+        /* make this the primary color */
+        color: black;
+        padding: 50px 0px;  
+    }
+    a:hover {
+        /* make this the secondary color */
+        color: aliceblue;
+        cursor: pointer;
+    }
+
+    img {
+        cursor: pointer;
+    }
 }
 /* .add:visited {
     text-decoration: none;
@@ -85,3 +91,75 @@ img {
     color: black;
     padding: 50px 0px;
 } */
+
+@media screen and (max-width: 835px) {
+  
+    .page-layout{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    header{
+        font-size: 1em;
+        grid-column: 2/3;
+        background: linear-gradient(45deg, rgb(var(--one), var(--two), var(--three)), rgb(var(--four), var(--five), var(--six)));
+        width: 100%;
+        text-align: center;
+        /* height: 100px; */
+        border-style: solid;
+        border-radius: 10px;
+    }
+    .header {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .logo{
+        grid-row: 1/2;
+    }
+    .actual-logo {
+        padding-left: 90px;
+        width: fit-content;
+    }
+    .name {
+        grid-row: 2/3;
+        font-size: 2em;
+    
+    }
+    .search {
+        padding-top: 10px;
+        margin: 5px;
+        font-size: large;
+        grid-row: 3/4;
+        text-decoration: none;
+    }
+    .add {
+        margin: 5px;
+        font-size: large;
+        grid-row: 4/5;
+        text-decoration: none;
+    }
+    .login {
+        margin: 5px;
+        font-size: large;
+        grid-row: 5/6;
+        text-decoration: none;
+    }
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+    a:link {
+        text-decoration: none;
+        /* make this the primary color */
+        color: black;
+    }
+    a:hover {
+        /* make this the secondary color */
+        color: aliceblue;
+        cursor: pointer;
+    }
+    
+    img {
+        cursor: pointer;
+    }
+}
