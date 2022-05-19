@@ -10,15 +10,15 @@
     <mat-card class="recipe-name">
       <mat-label>Recipe Name</mat-label>
       <div>
-      <mat-form-field >
+      <mat-form-field>
           <input matInput placeholder="Recipe name" formControlName="name">
       </mat-form-field>
-      <mat-form-field appearance="fill" >
+      <mat-form-field>
         <mat-label>Hours</mat-label>
         <input matInput type="number" placeholder="1"  formControlName="hour" min="1">
         <span matSuffix> </span>
       </mat-form-field>
-      <mat-form-field appearance="fill" >
+      <mat-form-field>
         <mat-label>Minutes</mat-label>
         <input matInput type="number" placeholder="45"  formControlName="minute" min="1" max="59">
         <span matSuffix> </span>
@@ -36,7 +36,9 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="amount" formControlName="amount">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" placeholder="1"  formControlName="amount" min="1">
+            <span matSuffix> </span>
           </mat-form-field>
 
           <mat-form-field>
@@ -76,13 +78,13 @@
       <div formArrayName="instructions">
         <div *ngFor="let instruction of instructionForms.controls; let i=index" [formGroupName]="i">
 
-          <mat-form-field appearance="fill" >
+          <mat-form-field>
             <mat-label>Step Number</mat-label>
             <input matInput type="number" placeholder="1"  formControlName="step" min="1">
             <span matSuffix> </span>
           </mat-form-field>
 
-          <mat-form-field appearance="fill">
+          <mat-form-field>
             <mat-label>Instructions</mat-label>
             <textarea matInput cdkTextareaAutosize [cdkAutosizeMinRows]="3" [cdkAutosizeMaxRows]="7" formControlName="direction" class="textarea"></textarea>
           </mat-form-field>

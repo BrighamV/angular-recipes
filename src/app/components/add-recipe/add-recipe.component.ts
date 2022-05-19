@@ -27,7 +27,6 @@ export class AddRecipeComponent implements OnInit {
       image: '',
       authorImage: '',
       authorName: '',
-      // time: '*Time it takes to complete this recipe'
 
     })
   }
@@ -90,10 +89,15 @@ export class AddRecipeComponent implements OnInit {
   
         },
         body: JSON.stringify({
+          
           name: this.myForm.value.name,
+          hour: this.myForm.value.hour,
+          minute: this.myForm.value.minute,
           instructions: this.myForm.value.instructions,
-          // ingredients: this.myForm.value.name,
-          // equipment: this.myForm.value.name, 
+          ingredients: this.myForm.value.ingredients,
+          equipment: this.myForm.value.equipments,
+          image: this.myForm.value.image,
+          authorName: this.myForm.value.authorName
 
         }),
       };
