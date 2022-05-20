@@ -25,7 +25,6 @@ export class AddRecipeComponent implements OnInit {
       ingredients: this.fb.array([]),
       equipments: this.fb.array([]),
       image: '',
-      authorImage: '',
       authorName: '',
 
     })
@@ -89,14 +88,13 @@ export class AddRecipeComponent implements OnInit {
   
         },
         body: JSON.stringify({
-          
+
           name: this.myForm.value.name,
           hour: this.myForm.value.hour,
           minute: this.myForm.value.minute,
           instructions: this.myForm.value.instructions,
           ingredients: this.myForm.value.ingredients,
           equipment: this.myForm.value.equipments,
-          image: this.myForm.value.image,
           authorName: this.myForm.value.authorName
 
         }),

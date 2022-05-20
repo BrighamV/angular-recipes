@@ -36,9 +36,8 @@
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Amount</mat-label>
-            <input matInput type="number" placeholder="1"  formControlName="amount" min="1">
-            <span matSuffix> </span>
+            <input matInput placeholder="amount" formControlName="amount">
+
           </mat-form-field>
 
           <mat-form-field>
@@ -46,8 +45,8 @@
               <mat-optgroup label="US">
                 <mat-option value="lbs">lbs</mat-option>
                 <mat-option value="cups">cups</mat-option>
-                <mat-option value="Tbs">Tbs</mat-option>
-                <mat-option value="tbs">tbs</mat-option>
+                <mat-option value="Tbs">Tbsp</mat-option>
+                <mat-option value="tbs">tsp</mat-option>
                 <mat-option value="oz">oz</mat-option>
                 <mat-option value="floz">fl oz</mat-option>
 
@@ -129,7 +128,7 @@
         </mat-form-field> -->
 
         <div ng-app="MyApp" ng-controller="AppCtrl" layout-margin layout-padding>
-          <input class="recipe-image" id="input-file-id" multiple type="file" />
+          <input class="recipe-image" id="input-file-id" multiple type="file" formControlName="image"/>
           <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
          </div>
       
