@@ -113,7 +113,7 @@
     </mat-card>
 
     <mat-card class="author">
-      <mat-label>Recipe Name</mat-label>
+      <mat-label>Author Name</mat-label>
       <div>
         <mat-form-field class="author-name">
           <input matInput placeholder="Author's Name" formControlName="authorName">
@@ -127,15 +127,19 @@
           <input matInput placeholder="Picture of dish" formControlName="image">
         </mat-form-field> -->
 
-        <div ng-app="MyApp" ng-controller="AppCtrl" layout-margin layout-padding>
+        <!-- <div ng-app="MyApp" ng-controller="AppCtrl" layout-margin layout-padding>
           <input class="recipe-image" id="input-file-id" multiple type="file" formControlName="image"/>
           <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
-         </div>
+         </div> -->
+
+         <input class="recipe-image" type="file" accept="image/*">
       
 
       </div>
     </mat-card>
-
+    <div class="error">
+      {{ message }} {{ error }}
+    </div>
     <button class="add-button" mat-raised-button (click)="addrecipe()" color="primary">Add Recipe!</button>
 
 

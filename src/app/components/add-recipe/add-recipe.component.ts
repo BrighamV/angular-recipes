@@ -12,6 +12,8 @@ export class AddRecipeComponent implements OnInit {
   submitted = false;
   myForm!: FormGroup;
   value1 = 'Clear me';
+  error!: string;
+  message!: string;
 
 
   constructor(private tutorialService: TutorialService, private fb: FormBuilder) { }
@@ -78,58 +80,55 @@ export class AddRecipeComponent implements OnInit {
   }
 
   async addrecipe() {
-    console.log('here in add recipe', this.myForm.value.name)
-       const options = {
-        method: "POST",
-        headers: {
-          // "Access-Control-Allow-Origin": "http://localhost:4200/add",
-          "Content-Type": "application/json",
+    const { url } = await fetch("http://localhost:8080/s3Url").then(res => res.json())
+    console.log(url)
 
-  
-        },
-        body: JSON.stringify({
-
-          name: this.myForm.value.name,
-          hour: this.myForm.value.hour,
-          minute: this.myForm.value.minute,
-          instructions: this.myForm.value.instructions,
-          ingredients: this.myForm.value.ingredients,
-          equipment: this.myForm.value.equipments,
-          authorName: this.myForm.value.authorName
-
-        }),
-      };
-  
-    let mess = await fetch("https://cse341-my-recipe.herokuapp.com/recipes/", options);
-        console.log("fetch message", mess);
-
-  }
-
-  // async function addMovie(formInput){
-  //   const token = getCookie("token");
-  
-    // const options = {
+    this.error = ""; 
+    if (!this.myForm.value.name) { 
+      this.error = ", a name "
+    }
+    if (!this.myForm.value.hour && !this.myForm.value.minute) {
+      this.error += ", a time "
+    }
+    if (!this.myForm.value.instructions[0]) {
+      this.error += ", instructions "
+    }
+    if (!this.myForm.value.ingredients[0]) {
+      this.error += ", ingredients "
+    }
+    if (this.error != "") {
+      this.message = "You can't have a recipe without "
+    } else {
+      this.message = ""
+    }
+    // if (this.error === "") { 
+    //   console.log("no error message ok to fetch")
+    
+    // // console.log('here in add recipe', this.myForm.value.name)
+    //    const options = {
     //     method: "POST",
     //     headers: {
-    //       // "Access-Control-Allow-Origin":  "https://brentont240.github.io/",
+    //       // "Access-Control-Allow-Origin": "http://localhost:4200/add",
     //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${token}`,
+
   
     //     },
     //     body: JSON.stringify({
-    //       title: formInput.title,
-    //       yearPublished: formInput.yearPublished,
-    //       rating: formInput.rating,
-    //       minutes: formInput.minutes,
-    //       genre: formInput.genre,
-    //       imageUrl: formInput.imageUrl,
-    //       description: formInput.description,
-    //       starRating: formInput.starRating
+
+    //       name: this.myForm.value.name,
+    //       hour: this.myForm.value.hour,
+    //       minute: this.myForm.value.minute,
+    //       instructions: this.myForm.value.instructions,
+    //       ingredients: this.myForm.value.ingredients,
+    //       equipment: this.myForm.value.equipments,
+    //       authorName: this.myForm.value.authorName
+
     //     }),
     //   };
   
-    // let postMovie = await fetch("https://film-watcher.herokuapp.com/movies/add-movie", options);
-  //   console.log("fetch message", postMovie);
-  // }
-  
+    // let mess = await fetch("https://cse341-my-recipe.herokuapp.com/recipes/", options);
+    //     console.log("fetch message", mess);
+    // }
+  }
+
 }
