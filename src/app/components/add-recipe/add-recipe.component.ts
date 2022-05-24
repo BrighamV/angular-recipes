@@ -14,6 +14,7 @@ export class AddRecipeComponent implements OnInit {
   value1 = 'Clear me';
   error!: string;
   message!: string;
+  successMessage!: string;
   file: any;
 
 
@@ -111,7 +112,7 @@ export class AddRecipeComponent implements OnInit {
       this.error += ", ingredients "
     }
     if (this.error != "") {
-      this.message = "You can't have a recipe without "
+      this.message = "* You can't have a recipe without "
     } else {
       this.message = ""
     }
@@ -156,7 +157,12 @@ export class AddRecipeComponent implements OnInit {
       // console.log("options", options.body)
   
     let mess = await fetch("https://cse341-my-recipe.herokuapp.com/recipes/", options);
-        console.log("fetch message", mess);
+    console.log("fetch message", mess);
+    if (mess.status === 201){
+      console.log("success")
+      this.successMessage = "Congratulations you have just saved a recipe!"
+    }
+
     }
   }
 

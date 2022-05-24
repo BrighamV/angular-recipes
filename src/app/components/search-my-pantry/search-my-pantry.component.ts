@@ -1,0 +1,40 @@
+import { getLocaleDateFormat } from '@angular/common';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
+import { MatDialog } from '@angular/material/dialog';
+import { CloseUpComponent } from '../close-up/close-up.component';
+
+@Component({
+  selector: 'app-search-my-pantry',
+  templateUrl: './search-my-pantry.component.html',
+  styleUrls: ['./search-my-pantry.component.css']
+})
+export class SearchMyPantryComponent implements OnInit {
+  name: any = [];
+  instructions: any = [];
+  id!: string;
+  first!: string;
+  second!: string;
+  third!: string;
+  steps: any = [];
+  ingredients: any = [];
+  value1 = 'Clear me';
+  value2 = 'Clear me';
+  value3 = 'Clear me';
+
+  constructor(
+    private http: HttpClient,
+    public dialog: MatDialog
+    ) { }
+
+  ngOnInit(): void {
+  }
+
+  // Change the original search to a search through my backend.
+
+  // Open the dialog with info from search through my backend. 
+
+}
+

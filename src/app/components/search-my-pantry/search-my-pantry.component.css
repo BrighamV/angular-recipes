@@ -1,0 +1,49 @@
+h1 {
+    text-align: center;
+  
+    /* margin: 0 auto; */
+    padding-top: 2em;
+    padding-bottom: 1em;
+    font-size: 4em;
+  }
+  .ing_list{
+      color: red;
+  }
+  .example-card {
+    max-width: 300px;
+  
+  }
+  
+  .recipe_list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 15px;
+  }
+  .example-card:hover {
+    cursor: pointer;
+  }
+  .form {
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+  .example-form-field{
+    /* width: 500px; */
+    padding: 10px;
+  }
+  .example-card{
+    max-width: 270px;
+    margin: 30px;
+  }
+  .mat-img{
+    margin: auto;
+    width: 98%;
+  }
+  .button {
+    /* text-align: center; */
+    margin: auto;
+  }

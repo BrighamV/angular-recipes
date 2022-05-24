@@ -73,9 +73,20 @@
 
   } */
   .error {
+    grid-column: 1/4;
     grid-row: 6/7;
-    font-size: xx-large;
-    color: red;
+    font-size: large;
+    margin: 20px;
+
+    color: rgb(197, 43, 43);
+  }
+  .success {
+    grid-column: 1/4;
+    grid-row: 6/7;
+    font-size:x-large;
+    margin: 20px;
+    color: #3F51B5;
+    text-align: center;
   }
   .add-button {
     grid-column: 2/3;

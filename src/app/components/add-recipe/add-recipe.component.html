@@ -140,6 +140,9 @@
     <div class="error">
       {{ message }} {{ error }}
     </div>
+    <div class="success">
+      {{ successMessage }}
+    </div>
     <button class="add-button" mat-raised-button (click)="addrecipe()" color="primary">Add Recipe!</button>
 
 
@@ -152,9 +155,10 @@
     <h3 class="time" *ngIf="myForm.value.hour || myForm.value.minute">
       <div *ngIf="myForm.value.hour">
         {{myForm.value.hour}} <span *ngIf="myForm.value.hour < 2">Hour</span><span *ngIf="myForm.value.hour > 1">Hours</span>
-        <span *ngIf="myForm.value.minute">
-          {{myForm.value.minute}} <span *ngIf="myForm.value.minute < 2">Minute</span><span *ngIf="myForm.value.minute > 1">Minutes</span>
-        </span>
+      </div>
+
+      <div *ngIf="myForm.value.minute">
+        {{myForm.value.minute}} <span *ngIf="myForm.value.minute < 2">Minute</span><span *ngIf="myForm.value.minute > 1">Minutes</span>
       </div>
      
     </h3>
