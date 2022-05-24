@@ -118,7 +118,7 @@ export class AddRecipeComponent implements OnInit {
     if (this.error === "") { 
       console.log("no error message ok to fetch")
       // post to aws
-      const { url } = await fetch("http://localhost:8080/s3Url").then(res => res.json())
+      const { url } = await fetch("https://cse341-my-recipe.herokuapp.com/s3Url").then(res => res.json())
       console.log(url)
       await fetch(url, {
         method: "PUT",
