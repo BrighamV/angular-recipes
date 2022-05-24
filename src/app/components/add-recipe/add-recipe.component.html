@@ -132,7 +132,7 @@
           <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
          </div> -->
 
-         <input class="recipe-image" type="file" accept="image/*">
+         <input id="imageInput" type="file" accept="image/*" (change)="selected($event)">
       
 
       </div>

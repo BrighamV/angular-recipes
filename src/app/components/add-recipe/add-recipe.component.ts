@@ -14,6 +14,8 @@ export class AddRecipeComponent implements OnInit {
   value1 = 'Clear me';
   error!: string;
   message!: string;
+  file: any;
+
 
 
   constructor(private tutorialService: TutorialService, private fb: FormBuilder) { }
@@ -79,9 +81,21 @@ export class AddRecipeComponent implements OnInit {
     this.equipmentForms.removeAt(i)
   }
 
+  selected(event: any) {
+
+    this.file = event.target.files[0];
+    console.log("file", this.file)
+
+  }
+
   async addrecipe() {
-    const { url } = await fetch("http://localhost:8080/s3Url").then(res => res.json())
-    console.log(url)
+
+
+  
+    // const img = document.createElement("img")
+    // img.src = imageUrl
+    // document.body.appendChild(img)
+
 
     this.error = ""; 
     if (!this.myForm.value.name) { 
@@ -101,34 +115,49 @@ export class AddRecipeComponent implements OnInit {
     } else {
       this.message = ""
     }
-    // if (this.error === "") { 
-    //   console.log("no error message ok to fetch")
+    if (this.error === "") { 
+      console.log("no error message ok to fetch")
+      // post to aws
+      const { url } = await fetch("http://localhost:8080/s3Url").then(res => res.json())
+      console.log(url)
+      await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+        body: this.file
+      })
+
+    const imageUrl = url.split('?')[0]
+    console.log(imageUrl)
     
-    // // console.log('here in add recipe', this.myForm.value.name)
-    //    const options = {
-    //     method: "POST",
-    //     headers: {
-    //       // "Access-Control-Allow-Origin": "http://localhost:4200/add",
-    //       "Content-Type": "application/json",
+    // console.log('here in add recipe', this.myForm.value.name)
+       const options = {
+        method: "POST",
+        headers: {
+          // "Access-Control-Allow-Origin": "http://localhost:4200/add",
+          "Content-Type": "application/json",
 
   
-    //     },
-    //     body: JSON.stringify({
+        },
+        body: JSON.stringify({
 
-    //       name: this.myForm.value.name,
-    //       hour: this.myForm.value.hour,
-    //       minute: this.myForm.value.minute,
-    //       instructions: this.myForm.value.instructions,
-    //       ingredients: this.myForm.value.ingredients,
-    //       equipment: this.myForm.value.equipments,
-    //       authorName: this.myForm.value.authorName
+          name: this.myForm.value.name,
+          hour: this.myForm.value.hour,
+          minute: this.myForm.value.minute,
+          instructions: this.myForm.value.instructions,
+          ingredients: this.myForm.value.ingredients,
+          equipment: this.myForm.value.equipments,
+          image: imageUrl,
+          authorName: this.myForm.value.authorName
 
-    //     }),
-    //   };
+        }),
+      };
+      // console.log("options", options.body)
   
-    // let mess = await fetch("https://cse341-my-recipe.herokuapp.com/recipes/", options);
-    //     console.log("fetch message", mess);
-    // }
+    let mess = await fetch("https://cse341-my-recipe.herokuapp.com/recipes/", options);
+        console.log("fetch message", mess);
+    }
   }
 
 }
