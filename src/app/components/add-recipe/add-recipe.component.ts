@@ -97,7 +97,7 @@ export class AddRecipeComponent implements OnInit {
     // img.src = imageUrl
     // document.body.appendChild(img)
 
-
+    this.successMessage = "";
     this.error = ""; 
     if (!this.myForm.value.name) { 
       this.error = ", a name "
@@ -163,6 +163,10 @@ export class AddRecipeComponent implements OnInit {
       this.successMessage = "Congratulations you have just saved a recipe!"
     }
 
+    // this.myForm.value.hour = "";
+    // this.myForm.value.minute = "";
+    this.myForm.reset()
+    this.file.nativeElement.value = ""
     }
   }
 

@@ -33,7 +33,26 @@ export class SearchMyPantryComponent implements OnInit {
   }
 
   // Change the original search to a search through my backend.
+  searchByIngredient(first: string, second: string) {
+    const options = {
+      method: 'GET',
+      headers: {
+        
+      
+      }
+    };
+  
+      this.http.get(` https://cse341-my-recipe.herokuapp.com/recipes/getRecipes/${first}/${second}`, options)
+      .subscribe(data => {
+        this.name = data
+        console.log("data",data)
+      })
+  }
+  onSubmit() {
+    // console.log("submited")
+    this.searchByIngredient(this.first, this.second);
 
+  }
   // Open the dialog with info from search through my backend. 
 
 }

@@ -1,5 +1,5 @@
 <h1>
-    Search Recipes
+    Search Recipes From the secret database!!!
   </h1>
   <div class="form">
     <mat-form-field class="example-form-field" appearance="fill" color="primary">
@@ -18,15 +18,7 @@
       </button>
     </mat-form-field>
   
-    <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label>Third ingredient</mat-label>
-      <input matInput type="text" [(ngModel)]="value3" [(ngModel)]="third">
-      <button *ngIf="value3" matSuffix mat-icon-button aria-label="Clear" (click)="value3=''">
-        <mat-icon>close</mat-icon>
-      </button>
-  
-    </mat-form-field>
-    <button mat-raised-button class="button" type="submit"  color="accent">Search</button>
+    <button mat-raised-button class="button" type="submit" (click)="onSubmit()"  color="accent">Search</button>
   
   </div>
   
@@ -34,7 +26,7 @@
   <div class="recipe_list" *ngIf="name">
     <mat-card class="example-card" *ngFor="let nam of name; index as i">
       <mat-card-header>
-        <mat-card-title>{{ nam.title }}</mat-card-title>
+        <mat-card-title>{{ nam.name }}</mat-card-title>
       </mat-card-header>
       <img mat-card-image class="mat-img" src='{{ nam.image }}'  alt="{{ nam.title }}" >
       <!-- [routerLink]="'/detail/' + nam.id" -->
