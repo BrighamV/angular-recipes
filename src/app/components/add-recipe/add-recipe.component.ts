@@ -16,6 +16,7 @@ export class AddRecipeComponent implements OnInit {
   message!: string;
   successMessage!: string;
   file: any;
+  imageUrl: any;
 
 
 
@@ -119,18 +120,24 @@ export class AddRecipeComponent implements OnInit {
     if (this.error === "") { 
       console.log("no error message ok to fetch")
       // post to aws
-      const { url } = await fetch("https://cse341-my-recipe.herokuapp.com/s3Url").then(res => res.json())
-      console.log(url)
-      await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "multipart/form-data"
-        },
-        body: this.file
-      })
+      if (this.file){
+        // console.log("we have a file")
+        const { url } = await fetch("https://cse341-my-recipe.herokuapp.com/s3Url").then(res => res.json())
+        console.log(url)
+        await fetch(url, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "multipart/form-data"
+          },
+          body: this.file
+        })
 
-    const imageUrl = url.split('?')[0]
-    console.log(imageUrl)
+        this.imageUrl = url.split('?')[0]
+        console.log("image url",this.imageUrl)
+      } else { 
+        this.imageUrl = "";
+        console.log("no file")
+      }
     
     // console.log('here in add recipe', this.myForm.value.name)
        const options = {
@@ -149,7 +156,7 @@ export class AddRecipeComponent implements OnInit {
           instructions: this.myForm.value.instructions,
           ingredients: this.myForm.value.ingredients,
           equipment: this.myForm.value.equipments,
-          image: imageUrl,
+          image: this.imageUrl,
           authorName: this.myForm.value.authorName
 
         }),
@@ -166,7 +173,7 @@ export class AddRecipeComponent implements OnInit {
     // this.myForm.value.hour = "";
     // this.myForm.value.minute = "";
     this.myForm.reset()
-    this.file.nativeElement.value = ""
+    // this.file.nativeElement.value = ""
     }
   }
 
