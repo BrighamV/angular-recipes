@@ -1,6 +1,12 @@
 <h2 mat-dialog-title>{{data.recipe.title}}</h2>
 <div class="mat_content">
     <mat-dialog-content>
+        <!-- <div *ngIf="data.recipe.image != ''">
+            <img mat-card-image class="recipe-img" src='{{ data.recipe.image }}'  alt="food" >
+          </div>
+          <div *ngIf="data.recipe.image === ''">
+            <img mat-card-image class="recipe-img" src="assets/new-logo.png"   alt="food" >
+          </div> -->
         <img class="recipe_img" src="{{data.recipe.image}}" alt="{{data.recipe.title}}">
     </mat-dialog-content>
     <mat-dialog-content>

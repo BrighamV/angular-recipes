@@ -7,6 +7,7 @@ import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { SearchMyPantryComponent } from './components/search-my-pantry/search-my-pantry.component';
+import { MyDetailComponent } from './components/my-detail/my-detail.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'users', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'login', component: AddUserComponent},
   { path: 'detail/:id', component: DetailComponent},
   { path: 'add', component: AddRecipeComponent},
-  { path: 'search/my-pantry', component: SearchMyPantryComponent}
+  { path: 'search/my-pantry', component: SearchMyPantryComponent},
+  { path: 'detail/mydetail/:id', component: MyDetailComponent}
 
 ];
 

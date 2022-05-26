@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
 import { MatDialog } from '@angular/material/dialog';
 import { CloseUpComponent } from '../close-up/close-up.component';
+import { MyCloseUpComponent } from '../my-close-up/my-close-up.component';
 
 @Component({
   selector: 'app-search-my-pantry',
@@ -54,6 +55,19 @@ export class SearchMyPantryComponent implements OnInit {
 
   }
   // Open the dialog with info from search through my backend. 
+  openDialog(recipe: any) {
+    console.log("recipe from my data", recipe)
+    
+      let dialogRef = this.dialog.open(MyCloseUpComponent, {data: {recipe}});
+      dialogRef.afterClosed().subscribe(result => {
+      // console.log(`dialog result: ${result}`);
+      if (result == 'true') {
+        // console.log("yey lets go")
+      } else {
+        // console.log("i guess were going back")
+      }
 
+    })
+  }
 }
 

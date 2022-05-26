@@ -29,10 +29,10 @@
         <mat-card-title>{{ nam.name }}</mat-card-title>
       </mat-card-header>
       <div *ngIf="nam.image != ''">
-        <img mat-card-image class="mat-img" src='{{ nam.image }}'  alt="{{ nam.title }}" >
+        <img mat-card-image class="mat-img" src='{{ nam.image }}' (click)="openDialog( nam )" alt="{{ nam.title }}" >
       </div>
       <div *ngIf="nam.image === ''">
-        <img mat-card-image class="mat-img" src="assets/new-logo.png"  alt="{{ nam.title }}" >
+        <img mat-card-image class="mat-img" src="assets/new-logo.png" (click)="openDialog( nam )"  alt="{{ nam.title }}" >
       </div>
         <!-- [routerLink]="'/detail/' + nam.id" -->
     
@@ -43,7 +43,7 @@
   
   <!-- {{ instructions | json }} -->
   
-  <ul class="recipe_list" *ngIf="steps">
+  <!-- <ul class="recipe_list" *ngIf="steps">
       <li *ngFor="let step of steps; index as i">
           <p>Step # {{ step.number }} </p>
           <ul>
@@ -60,7 +60,7 @@
    
   
   
-  </ul>
+  </ul> -->
   <!-- 
   {{ ingredients | json }}
   

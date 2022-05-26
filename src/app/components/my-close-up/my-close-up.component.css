@@ -1,0 +1,13 @@
+.mat_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.recipe_img{
+    grid-column: 1/2;
+    max-width: 300px;
+}
+
+.ingredient_list{
+    grid-column: 2/3;
+}

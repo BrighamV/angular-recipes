@@ -26,6 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SearchMyPantryComponent } from './components/search-my-pantry/search-my-pantry.component';
+import { MyCloseUpComponent } from './components/my-close-up/my-close-up.component';
+import { MyDetailComponent } from './components/my-detail/my-detail.component';
 
 
 
@@ -44,7 +46,9 @@ import { SearchMyPantryComponent } from './components/search-my-pantry/search-my
     DetailComponent,
     CloseUpComponent,
     AddRecipeComponent,
-    SearchMyPantryComponent
+    SearchMyPantryComponent,
+    MyCloseUpComponent,
+    MyDetailComponent,
   ],
   entryComponents: [CloseUpComponent],
   imports: [
