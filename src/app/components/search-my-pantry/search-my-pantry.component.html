@@ -28,10 +28,13 @@
       <mat-card-header>
         <mat-card-title>{{ nam.name }}</mat-card-title>
       </mat-card-header>
-      <!-- <div *ngIf="nam.image"> -->
+      <div *ngIf="nam.image != ''">
         <img mat-card-image class="mat-img" src='{{ nam.image }}'  alt="{{ nam.title }}" >
-      <!-- </div> -->
-      <!-- [routerLink]="'/detail/' + nam.id" -->
+      </div>
+      <div *ngIf="nam.image === ''">
+        <img mat-card-image class="mat-img" src="assets/new-logo.png"  alt="{{ nam.title }}" >
+      </div>
+        <!-- [routerLink]="'/detail/' + nam.id" -->
     
     </mat-card>
   </div>
