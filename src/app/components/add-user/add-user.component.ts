@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -11,10 +12,18 @@ export class AddUserComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
   
   ngOnInit(): void {
   }
  
+  toGoogle() {
+    console.log("at google")
+    this.http.get('http://localhost:8080/auth/google')
+
+  }
+
 
 }
