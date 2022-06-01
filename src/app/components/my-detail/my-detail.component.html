@@ -1,11 +1,11 @@
 <div class="page_layout">
     <mat-card class="title_card">
         <mat-card-title>{{ data.name }}</mat-card-title>
-        <div *ngIf="data.hour">
+        <div class="hour" *ngIf="data.hour > 0">
             {{ data.hour }} <span *ngIf="data.hour < 2">Hour</span><span *ngIf="data.hour > 1">Hours</span>
           </div>
     
-          <div *ngIf="data.minute">
+          <div *ngIf="data.minute> 0">
             {{ data.minute }} <span *ngIf="data.minute < 2">Minute</span><span *ngIf="data.minute > 1">Minutes</span>
           </div>
 

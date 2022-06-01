@@ -13,7 +13,9 @@
         padding-top: 30px;
         
     }
-    
+    .hour {
+        padding-bottom: 10px;
+    }
     .page_layout {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
