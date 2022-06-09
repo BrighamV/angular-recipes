@@ -4,13 +4,22 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
+import { SearchMyPantryComponent } from './components/search-my-pantry/search-my-pantry.component';
+import { MyDetailComponent } from './components/my-detail/my-detail.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'users', pathMatch: 'full'},
   { path: '', component: HomeComponent},
   { path: 'search', component: SearchComponent},
   { path: 'users', component: UserListComponent },
-  { path: 'add', component: AddUserComponent}
+  { path: 'login', component: AddUserComponent},
+  { path: 'detail/:id', component: DetailComponent},
+  { path: 'add', component: AddRecipeComponent},
+  { path: 'search/my-pantry', component: SearchMyPantryComponent},
+  { path: 'detail/mydetail/:id', component: MyDetailComponent}
+
 ];
 
 @NgModule({

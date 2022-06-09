@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user.model';
-import { TutorialService } from 'src/app/services/tutorial.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-add-user',
@@ -9,21 +9,22 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 
 export class AddUserComponent implements OnInit {
-  user: User = new User();
-  submitted = false;
-  constructor(private tutorialService: TutorialService) { }
+
+
+
+  constructor(
+    private http: HttpClient,
+  ) { }
   
   ngOnInit(): void {
   }
-  saveUser(): void {
-    this.tutorialService.create(this.user).then(() => {
-      console.log('Created new item successfully!');
-      this.submitted = true;
-    })
+ 
+  async toGoogle() {
+    console.log("at google")
+    // const res = await this.http.get('http://localhost:8080/auth/google')
+                 // just redirect to http://localhost:8080/auth/google, dont send an http.get to it
+    // console.log("response", res)
   }
-  newUser(): void {
-    this.submitted = false;
-    this.user = new User();
-  }
+
 
 }

@@ -14,6 +14,24 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import { DetailComponent } from './components/detail/detail.component';
+import { CloseUpComponent } from './components/close-up/close-up.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
+import { MatSelectModule } from '@angular/material/select';
+import { SearchMyPantryComponent } from './components/search-my-pantry/search-my-pantry.component';
+import { MyCloseUpComponent } from './components/my-close-up/my-close-up.component';
+import { MyDetailComponent } from './components/my-detail/my-detail.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,8 +42,15 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    DetailComponent,
+    CloseUpComponent,
+    AddRecipeComponent,
+    SearchMyPantryComponent,
+    MyCloseUpComponent,
+    MyDetailComponent,
   ],
+  entryComponents: [CloseUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,7 +58,15 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // for firestore
-    HttpClientModule
+    HttpClientModule, 
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatIconModule,
+    MatDialogModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

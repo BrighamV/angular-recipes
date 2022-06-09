@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{data.recipe.name}}</h2>
+<div class="mat_content">
+    <mat-dialog-content>
+        <div *ngIf="data.recipe.image != ''">
+            <img mat-card-image class="recipe_img" src='{{ data.recipe.image }}'  alt="food" >
+          </div>
+          <div *ngIf="data.recipe.image === ''">
+            <img mat-card-image class="recipe_img" src="assets/new-logo.png"   alt="food" >
+          </div>
+        <!-- <img class="recipe_img" src="{{data.recipe.image}}" alt="{{data.recipe.title}}"> -->
+    </mat-dialog-content>
+    <mat-dialog-content>
+        <!-- {{ data.recipe.ingredients | json }} -->
+
+        <ul class="ingredient_list" *ngIf="data.recipe.ingredients">
+            <li *ngFor="let ingredient of data.recipe.ingredients; index as i">
+                <p>{{ ingredient.name }}</p>
+            </li>
+        </ul>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close mat-dialog-close="true" [routerLink]="'/detail/mydetail/' + data.recipe._id">See Recipe</button>
+        <button mat-button mat-dialog-close mat-dialog-close="false">Close</button>
+    </mat-dialog-actions>
+</div>

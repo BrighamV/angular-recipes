@@ -1,0 +1,203 @@
+  <h1>
+    Add Your Recipe
+  </h1>
+  <form [formGroup]="myForm" class="add-recipe-form">
+
+
+    <!-- <hr> -->
+
+   
+    <mat-card class="recipe-name">
+      <mat-label>Recipe Name</mat-label>
+      <div>
+      <mat-form-field>
+          <input matInput placeholder="Recipe name" formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Hours</mat-label>
+        <input matInput type="number" placeholder="1"  formControlName="hour" min="1">
+        <span matSuffix> </span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Minutes</mat-label>
+        <input matInput type="number" placeholder="45"  formControlName="minute" min="1" max="59">
+        <span matSuffix> </span>
+      </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card class="ingredient-card">
+      <mat-label>Ingredients</mat-label>
+      <div formArrayName="ingredients">
+        <div *ngFor="let ingredient of ingredientForms.controls; let i=index" [formGroupName]="i">
+
+          <mat-form-field>
+            <input matInput placeholder="name" formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="amount" formControlName="amount">
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select matInput placeholder="units" formControlName="units">
+              <mat-optgroup label="US">
+                <mat-option value="lbs">lbs</mat-option>
+                <mat-option value="cups">cups</mat-option>
+                <mat-option value="Tbs">Tbsp</mat-option>
+                <mat-option value="tbs">tsp</mat-option>
+                <mat-option value="oz">oz</mat-option>
+                <mat-option value="floz">fl oz</mat-option>
+
+
+              </mat-optgroup>
+              <mat-optgroup label="Metric">
+                <mat-option value="grams">grams</mat-option>
+
+              </mat-optgroup>
+              <mat-optgroup label="Other">
+                <mat-option value="pack">pack</mat-option>
+                <mat-option value="can">can</mat-option>
+                <mat-option value="box">box</mat-option> 
+                <mat-option value="slices">slices</mat-option>   
+                <mat-option value="each">each</mat-option>              
+                <mat-option value="totaste">to taste</mat-option>  
+                <mat-option value="bag">bag</mat-option>
+            
+
+             
+              </mat-optgroup> 
+
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button (click)="deleteingredient(i)">Delete</button>
+
+        </div>
+      </div>
+      <button mat-raised-button (click)="addingredient()" color="accent">Add ingredient</button>
+    </mat-card>
+
+    <mat-card class="instruction-card">
+      <mat-label>Instructions</mat-label>
+      <div formArrayName="instructions">
+        <div *ngFor="let instruction of instructionForms.controls; let i=index" [formGroupName]="i">
+
+          <mat-form-field>
+            <mat-label>Step Number</mat-label>
+            <input matInput type="number" placeholder="1"  formControlName="step" min="1">
+            <span matSuffix> </span>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Instructions</mat-label>
+            <textarea matInput cdkTextareaAutosize [cdkAutosizeMinRows]="3" [cdkAutosizeMaxRows]="7" formControlName="direction" class="textarea"></textarea>
+          </mat-form-field>
+<br>
+          <button mat-raised-button (click)="deleteinstruction(i)">Delete</button>
+        </div>
+      </div>
+      <button mat-raised-button (click)="addinstruction()" color="accent">Add instruction</button>
+    </mat-card>
+
+
+    <mat-card class="equipment-card">
+      <mat-label>Equipment needed</mat-label>
+      <div formArrayName="equipments">
+        <div *ngFor="let equipment of equipmentForms.controls; let i=index" [formGroupName]="i">
+
+          <mat-form-field>
+            <input matInput placeholder="name" formControlName="name">
+          </mat-form-field>
+
+          <button mat-raised-button (click)="deleteequipment(i)">Delete</button>
+
+        </div>
+      </div>
+      <button mat-raised-button (click)="addequipment()" color="accent">Add equipment</button>
+
+    </mat-card>
+
+    <mat-card class="author">
+      <mat-label>Author Name</mat-label>
+      <div>
+        <mat-form-field class="author-name">
+          <input matInput placeholder="Author's Name" formControlName="authorName">
+        </mat-form-field>
+<!-- 
+        <mat-form-field class="author-image">
+          <input matInput placeholder="Image of the Author" formControlName="authorImage">
+        </mat-form-field> -->
+
+        <!-- <mat-form-field class="recipe-image">
+          <input matInput placeholder="Picture of dish" formControlName="image">
+        </mat-form-field> -->
+
+        <!-- <div ng-app="MyApp" ng-controller="AppCtrl" layout-margin layout-padding>
+          <input class="recipe-image" id="input-file-id" multiple type="file" formControlName="image"/>
+          <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+         </div> -->
+
+         <input id="imageInput" type="file" accept="image/*" (change)="selected($event)">
+      
+
+      </div>
+    </mat-card>
+    <div class="error">
+      {{ message }} {{ error }}
+    </div>
+    <div class="success">
+      {{ successMessage }}
+    </div>
+    <button class="add-button" mat-raised-button (click)="addrecipe()" color="primary">Add Recipe!</button>
+
+
+  
+
+  <mat-card class="recipe-card">
+    <h2 *ngIf="myForm.value.name">
+      {{ myForm.value.name }}
+    </h2>
+    <h3 class="time" *ngIf="myForm.value.hour || myForm.value.minute">
+      <div *ngIf="myForm.value.hour">
+        {{myForm.value.hour}} <span *ngIf="myForm.value.hour < 2">Hour</span><span *ngIf="myForm.value.hour > 1">Hours</span>
+      </div>
+
+      <div *ngIf="myForm.value.minute">
+        {{myForm.value.minute}} <span *ngIf="myForm.value.minute < 2">Minute</span><span *ngIf="myForm.value.minute > 1">Minutes</span>
+      </div>
+     
+    </h3>
+    
+
+      Ingredients:
+      <ul *ngIf="myForm.value.ingredients">
+        <li *ngFor="let ingredient of myForm.value.ingredients; index as i">
+            <p>{{ ingredient.amount }} {{ ingredient.units }} {{ ingredient.name }}</p>
+        </li>
+      </ul>
+      <div class="instruction-div">
+        Instructions: 
+        <!-- {{ myForm.value.instructions | json }} -->
+        <ul *ngIf="myForm.value.instructions">
+          <li *ngFor="let step of myForm.value.instructions; index as i">
+              <p>Step # {{ step.step }} </p>
+              <p>{{ step.direction }}</p>
+          </li>
+        </ul>
+      </div>
+
+      Equipment needed:
+      <ul *ngIf="myForm.value.equipments">
+        <li *ngFor="let equipment of myForm.value.equipments; index as i">
+            <p>{{ equipment.name }}</p>
+        </li>
+      </ul>
+
+      Author Name:
+      <p>{{ myForm.value.authorName }}</p>
+    
+
+  </mat-card>
+  </form>

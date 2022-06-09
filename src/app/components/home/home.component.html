@@ -2,9 +2,52 @@
     <img class="home_pic" src="assets/re_veggies.jpg" alt="food" >
 
     <div class="home_intro">
-        <p>My pantry can help you save! With the help of My pantry you can find recipies that tailor to your fridge and pantry.
-            Don't throw away the half onion or the cheese that is about to go bad. Use it! Just search for the ingredients you
-            you need to use to find a recipe that fits your tastes.
+        <p>My Pantry can help you save! With the help of My pantry you can find recipies that tailor to your fridge and pantry.
+            Don't throw away the half onion you didnt use or the left over greek yogurt in your fridge. Use it! Just search for the ingredients
+            you need to use to find a recipe that fits your tastes. Give it a try and find hundreds of recipes that match your pantry. 
         </p>
     </div>
+</div>
+
+<div class="home_layout">
+    <mat-card class="search_card">
+        <mat-card-title>Search</mat-card-title>
+        <mat-card-content>
+            With our search you can find recipes that fit your pantry. Here's the idea, lets say you cook something new for dinner one night. Because 
+            you try something new you have left over ingredients that you will likley let sit in your fridge untill it goes bad (we all do it). Instead
+            of let the mold grow you can find a recipe that uses that ingredient. Resulting in less waste and more good food.
+        </mat-card-content>
+        
+        <button mat-raised-button class="button" routerLink="/search" color="accent">Try it out, it's fun!</button>
+
+    </mat-card>
+    <div class="video">
+        <video autoplay [muted]="'muted'" loop class="search_video">
+            <source type="video/mp4" src="assets/search.mp4">
+        </video>
+    </div>
+
+
+    <mat-card class="add_recipe_card">
+        <mat-card-title>Add Recipe</mat-card-title>
+        <mat-card-content>
+            We are currently using data from a 3rd party. We would love to change that but we need your help. By gathering your recipes we can 
+            build a vast database filled with recipes created by you and your peers. Please consider adding your recipes to our database so you can share 
+            what makes you happy. 
+        </mat-card-content>
+        
+        <button mat-raised-button class="button" routerLink="/add" color="accent">Add Recipe here!</button>
+
+    </mat-card>
+
+    <mat-card class="login_card">
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            *In progress* We are working on some awesome features to enjoy with a log in. While we work on building the login please enjoy using the search 
+            feature and consider adding to our database of recipes.
+        </mat-card-content>
+        
+        <button mat-raised-button class="button" routerLink="/login" color="accent" aria-readonly="true">Login</button>
+
+    </mat-card>
 </div>

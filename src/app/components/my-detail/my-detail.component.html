@@ -1,0 +1,62 @@
+<div class="page_layout">
+    <mat-card class="title_card">
+        <mat-card-title>{{ data.name }}</mat-card-title>
+        <div class="hour" *ngIf="data.hour > 0">
+            {{ data.hour }} <span *ngIf="data.hour < 2">Hour</span><span *ngIf="data.hour > 1">Hours</span>
+          </div>
+    
+          <div *ngIf="data.minute> 0">
+            {{ data.minute }} <span *ngIf="data.minute < 2">Minute</span><span *ngIf="data.minute > 1">Minutes</span>
+          </div>
+
+        <div *ngIf="data.image != ''">
+            <img mat-card-image class="image" src='{{ data.image }}'  alt="{{ data.image }}" >
+          </div>
+          <div *ngIf="data.image === ''">
+            <img mat-card-image class="image" src="assets/new-logo.png"   alt="food" >
+          </div>
+          <mat-card-subtitle>Recipe by: {{ data.authorName }}</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card class="instructions">
+        <mat-card-title>Directions:</mat-card-title>
+        <ul class="recipe_list">
+        <li *ngFor="let step of data.instructions; index as i">
+            <p>Step # {{ step.step }} </p>
+            <!-- <ul>
+        
+            <li *ngFor="let ingredient of step.ingredients; index as i">
+            <p>{{ingredient.name}}</p>
+        </li>
+            </ul> -->
+            <p>{{ step.direction }}</p>
+
+        </li>
+    </ul>
+    </mat-card>
+
+    <mat-card class="ingredient_list">
+        <mat-card-title>Make sure you have:</mat-card-title>
+        <ul>
+            <li *ngFor="let ingredient of data.ingredients; index as i">
+                <p>{{ ingredient.amount }} {{ ingredient.units }} {{ ingredient.name }}</p>
+            </li>
+        </ul>
+    </mat-card>
+
+
+
+    <mat-card class="equipment_list">
+        <mat-card-title>What you'll need</mat-card-title>
+    
+                <ul>
+                <li *ngFor="let equip of data.equipment; index as i">
+                    <p>{{equip.name}}</p>
+                </li>
+                </ul>    
+    
+    </mat-card>
+
+
+
+</div>
