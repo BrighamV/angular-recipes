@@ -19,10 +19,11 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
   }
  
-  toGoogle() {
+  async toGoogle() {
     console.log("at google")
-    this.http.get('http://localhost:8080/auth/google')
-
+    // const res = await this.http.get('http://localhost:8080/auth/google')
+                 // just redirect to http://localhost:8080/auth/google, dont send an http.get to it
+    // console.log("response", res)
   }
 
 
