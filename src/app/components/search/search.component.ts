@@ -1,7 +1,7 @@
 import { getLocaleDateFormat } from '@angular/common';
 import { Component, Injectable, OnInit } from '@angular/core';
 // import { environment } from 'src/environments/environment';
-import { environment } from '../../../environments/environment';
+import { environment } from './../environments/environment';
 
 import { HttpClient } from '@angular/common/http';
 import { StringMapWithRename } from '@angular/compiler/src/compiler_facade_interface';
