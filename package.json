@@ -2,9 +2,8 @@
   "name": "angular-recipe",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build --prod",
+    "heroku-postbuild": "ng build",
     "ng": "ng",
-    "build": "ng build",
     "start": "node server.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
